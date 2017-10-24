@@ -1,7 +1,6 @@
 <section class="">
   <h2>Produits</h2>
 <div class="row">
-  <?php foreach ($vehicules as $vehicule): ?>
 
         <div class="col s12">
           <div class="card blue-grey darken-1">
@@ -26,11 +25,6 @@
               </div>
 
 
-
-              <?php
-              var_dump($vehicule->getIdVehicule());
-              ?>
-
             <div class="card-content white-text">
               <span class="card-title"><?php echo htmlspecialchars($vehicule->getMark()) ?></span>
               <div class="card-content white-text">
@@ -49,6 +43,5 @@
             </div>
           </div>
         </div>
-      <?php endforeach; ?>
       </div>
     </section>

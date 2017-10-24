@@ -5,42 +5,47 @@
  */
 class vehiculeManager
 {
+
     protected $bdd;
 
 
-    public function __construct($bdd)
-    {
-        $this->setBdd($bdd);
-    }
+  public function __construct($bdd)
 
-    // tous les vehicule
+  {
+    $this->setBdd($bdd);
+  }
+
+// tous les vehicule
     public function getVehicules()
     {
         $vehicule=[];
         $request = $this->bdd->query('SELECT * FROM vehicule');
 
-        while ($donnees = $request->fetch(PDO::FETCH_ASSOC)) {
-            $vehicule[] = new vehicule($donnees);
-        }
+        while ($donnees = $request->fetch(PDO::FETCH_ASSOC))
+
+    {
+      $vehicule[] = new vehicule($donnees);
+
+    }
 
         return $vehicule;
     }
 
     public function getIdvehicule($idVehicule)
     {
-        $request = $this->bdd->prepare('SELECT * FROM vehicule WHERE idVehicule = :idVehicule');
-        $request-> execute(array('idVehicule' => $idVehicule));
+    $request = $this->bdd->prepare('SELECT * FROM vehicule WHERE idVehicule = :idVehicule');
+    $request->execute(array('idVehicule' => $idVehicule ));
+    $idVehicule = $request->fetch(PDO::FETCH_ASSOC);
 
-        $idVehicule=$request->fetch();
+    return $idVehicule;
+  }
 
-        return $idVehicule;
-    }
 
-    public function setBdd($bdd)
-    {
+      public function setBdd($bdd)
+      {
         $this->bdd=$bdd;
+      }
     }
-}
 
     // public function add(vehicule $vehicule)
     // {

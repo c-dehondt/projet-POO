@@ -5,9 +5,6 @@
 
         <div class="col s12 m6">
           <div class="card blue-grey darken-1">
-            <?php
-            var_dump($vehicule->getIdVehicule());
-            ?>
             <div class="card-content white-text">
               <span class="card-title"><?php echo htmlspecialchars($vehicule->getMark()) ?></span>
               <p> Model: <?php echo htmlspecialchars($vehicule->getModel()) ?></p>
@@ -22,6 +19,9 @@
                 <input type="hidden" name="detail" value="<?php echo $vehicule->getIdVehicule()?>">
                 <button class="btn-floating red right" type="submit"><i class="material-icons">add</i></button>
               </form>
+              <?php
+              var_dump($vehicule->getIdVehicule());
+              ?>
             </div>
           </div>
         </div>
