@@ -12,7 +12,7 @@
         <!-- Place favicon.ico in the root directory -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
         <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow|Dancing+Script|Pacifico" rel="stylesheet">        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="../css/main.css">
 
         <script src="https://use.fontawesome.com/40917ba2bf.js"></script>
     </head>
@@ -20,10 +20,17 @@
 
       <nav>
           <div class="nav-wrapper">
-            <a href="index.php" class="brand-logo"><img src="" alt="logo du site"></a>
+            <a href="home.php" class="brand-logo"><img src="" alt="logo du site"></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-              <li><a href="#">Créer produit</a></li>
-              <li><a href="index.php">Tous les produits</a></li>
+              <li>
+                <a href="../controller/addVehicule.php">Créer un produit
+                  <!-- <form action="index.php"  method="post">
+                  <input type="hidden" name="addVehicule">
+                  <button class="btn-flat white-text" type="submit">Créer produit</button>
+                </form> -->
+                </a>
+              </li>
+              <li><a href="home.php">Tous les produits</a></li>
 
             </ul>
           </div>

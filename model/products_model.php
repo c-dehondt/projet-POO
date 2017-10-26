@@ -5,76 +5,117 @@
  */
 class vehiculeManager
 {
-
     protected $bdd;
 
 
-  public function __construct($bdd)
+    public function __construct($bdd)
+    {
+        $this->setBdd($bdd);
+    }
 
-  {
-    $this->setBdd($bdd);
-  }
+    public function setBdd($bdd)
+    {
+      $this->bdd=$bdd;
+    }
 
-// tous les vehicule
+    // tous les vehicule
     public function getVehicules()
     {
         $vehicule=[];
         $request = $this->bdd->query('SELECT * FROM vehicule');
 
-        while ($donnees = $request->fetch(PDO::FETCH_ASSOC))
+        while ($donnees = $request->fetch(PDO::FETCH_ASSOC)) {
+          //   switch ($donnees['type']) {
+          // case 'voiture':
+          //   $donnees = new voiture;
+          //   break;
+          //
+          // case 'moto':
+          // $donnees = new moto;
+          //   break;
+          //
+          //   case 'camion':
+          //   $donnees = new camion;
+          //     break;
 
-    {
-      $vehicule[] = new vehicule($donnees);
-
-    }
+          $vehicule[] = new $donnees['type']($donnees);
+          }
 
         return $vehicule;
+
     }
+
 
     public function getIdvehicule($idVehicule)
     {
-    $request = $this->bdd->prepare('SELECT * FROM vehicule WHERE idVehicule = :idVehicule');
-    $request->execute(array('idVehicule' => $idVehicule ));
-    $idVehicule = $request->fetch(PDO::FETCH_ASSOC);
-
-    return $idVehicule;
-  }
-
-
-      public function setBdd($bdd)
-      {
-        $this->bdd=$bdd;
-      }
+        $request = $this->bdd->prepare('SELECT * FROM vehicule WHERE idVehicule = :idVehicule');
+        $request->execute(array('idVehicule' => $idVehicule ));
+        $donnees = $request->fetch(PDO::FETCH_ASSOC);
+        $vehicule = new $donnees['type']($donnees);
+        return $vehicule;
     }
 
-    // public function add(vehicule $vehicule)
-    // {
-    //     $bdd=getdatabase();
-    //     // Préparation de la requête d'insertion.
-    //
-    // // Assignation des valeurs pour le nom, la force, les dégâts, l'expérience et le niveau du personnage.
-    //
-    // // Exécution de la requête.
-    // }
-    //
-    //
-    // public function delete(vehicule $vehicule)
-    // {
-    //     $bdd=getdatabase();
-    //     // Exécute une requête de type DELETE.
-    // }
-    //
-    //
-    //
-    //
-    //
-    //
-    // public function update(vehicule $vehicule)
-    // {
-    //     $bdd=getdatabase();
-    //     // Prépare une requête de type UPDATE.
-    //
-    // // Assignation des valeurs à la requête.
-    //
-    // // Exécution de la requête.
-    // }
+    public function deleteVehicule($idVehicule)
+    {
+
+      $request=$this->bdd->prepare('DELETE FROM vehicule WHERE idVehicule = :idVehicule');
+      $request->execute(array('idVehicule'=> $idVehicule));
+    }
+
+    public function addVehicule(
+        $mark,
+        $model,
+        $registration,
+        $price,
+        $type,
+        $door,
+        $wheel,
+        $fuel,
+        $detail)
+        {
+
+        $request = $this->bdd->prepare('INSERT INTO vehicule (mark, model, registration, price, type, door, wheel, fuel, detail)
+                                                        VALUES(:mark, :model, :registration, :price, :type, :door, :wheel, :fuel, :detail)');
+        $request->execute(array(
+        'mark'=>$mark,
+        'model'=>$model,
+        'registration'=>$registration,
+        'price'=>$price,
+        'type'=>$type,
+        'door'=>$door,
+        'wheel'=>$wheel,
+        'fuel'=>$fuel,
+        'detail'=>$detail
+        ));
+    }
+
+    public function updateVehicule(
+      $idVehicule,
+      $mark,
+      $model,
+      $registration,
+      $price,
+      $type,
+      $door,
+      $wheel,
+      $fuel,
+      $detail)
+      {
+
+      $request = $this->bdd->prepare('UPDATE vehicule SET mark=:mark, model=:model, registration=:registration, price=:price, type=:type, door=:door, wheel=:wheel, fuel=:fuel, detail=:detail WHERE idVehicule = :idVehicule');
+
+      $request->execute(array(
+      'idVehicule'=>$idVehicule,
+      'mark'=>$mark,
+      'model'=>$model,
+      'registration'=>$registration,
+      'price'=>$price,
+      'type'=>$type,
+      'door'=>$door,
+      'wheel'=>$wheel,
+      'fuel'=>$fuel,
+      'detail'=>$detail
+      ));
+}
+
+}

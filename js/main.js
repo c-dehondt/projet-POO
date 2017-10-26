@@ -6,3 +6,8 @@ $('.datepicker').pickadate({
    close: 'Ok',
    closeOnSelect: false // Close upon selecting a date,
  });
+
+
+ $(document).ready(function() {
+    $('select').material_select();
+  });

@@ -2,7 +2,7 @@
 /**
  *
  */
-class vehicule
+abstract class vehicule
 {
     protected $idVehicule;
     protected $mark;
@@ -18,6 +18,7 @@ class vehicule
     public function __construct(array $vehicules)
     {
       $this->hydrate($vehicules);
+      $this->type = static::class;
     }
 
     public function hydrate(array $vehicules)
@@ -134,3 +135,5 @@ class vehicule
       return $this->detail;
     }
 }
+
+  ?>
