@@ -5,6 +5,7 @@
 abstract class vehicule
 {
     protected $idVehicule;
+    protected $image;
     protected $mark;
     protected $model;
     protected $registration;
@@ -35,6 +36,11 @@ abstract class vehicule
     public function setIdVehicule($idVehicule)
     {
         $this->idVehicule=$idVehicule;
+    }
+
+    public function setImage($image)
+    {
+        $this->image=$image;
     }
 
     public function setMark($mark)
@@ -87,6 +93,11 @@ abstract class vehicule
     public function getIdVehicule()
     {
       return $this->idVehicule;
+    }
+
+    public function getImage()
+    {
+        return $this->image;
     }
 
     public function getMark()

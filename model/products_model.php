@@ -22,7 +22,7 @@ class vehiculeManager
     public function getVehicules()
     {
         $vehicule=[];
-        $request = $this->bdd->query('SELECT * FROM vehicule');
+        $request = $this->bdd->query('SELECT * FROM vehicule INNER JOIN image ON vehicule.idVehicule = image.idVehicule');
 
         while ($donnees = $request->fetch(PDO::FETCH_ASSOC)) {
           //   switch ($donnees['type']) {
@@ -43,6 +43,13 @@ class vehiculeManager
 
         return $vehicule;
 
+    }
+
+    public function addImage($idVehicule, $FILES){
+    $request=$this->bdd->prepare ("INSERT INTO image (idVehicule, image) VALUES (:idVehicule, :FILES)");
+    $request->execute([
+      'idVehicule'=> $idVehicule,
+      'FILES' => $FILES['monfichier']['name']]);
     }
 
 

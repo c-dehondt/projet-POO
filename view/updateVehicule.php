@@ -70,11 +70,10 @@
          <label>Type de vehicule</label>
        </div>
 
-       <div class="input-field col s12" id="formdetail">
-         <i class="material-icons prefix">mode_edit</i>
-         <textarea name="detail" id="froala-editor" class="materialize-textarea"><?php echo htmlspecialchars($vehicule->getDetail())?></textarea>
-         <label for="detail"></label>
-       </div>
+       <div class="input-field col s12">
+             <textarea name="detail"><?php echo htmlspecialchars($vehicule->getDetail())?></textarea>
+         </div>
+       
 
        <div class="card-action">
          <input class="waves-effect waves-light btn" type="submit" name="updateVehicule" value="valider">

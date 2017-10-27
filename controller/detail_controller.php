@@ -3,6 +3,7 @@
   require '../model/products_model.php';
   require '../service/chargerClass.php';
   require '../view/header.php';
+  // require_once 'htmlpurifier/HTMLPurifier.auto.php';
 
   spl_autoload_register('chargerClasse');
 

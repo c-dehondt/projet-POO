@@ -1,7 +1,7 @@
 <section class="container">
   <h2>Nouveau vehicule</h2>
   <div class="row">
-    <form action="../controller/addVehicule.php" method="post" class="col s12">
+    <form action="../controller/addVehicule.php" method="post" class="col s12" enctype="multipart/form-data">
       <div class="row">
         <div class="input-field col s12 m6">
           <input name='mark' id="marque du vehicule" type="text" class="validate">
@@ -47,7 +47,6 @@
 
   <div class="input-field col s12 m3">
  <select name="fuel">
-   <option value="" disabled selected>Carburant</option>
    <option value="Essence">Essence</option>
    <option value="Diesel">Diesel</option>
    <option value="Gaz">Gaz</option>
@@ -58,7 +57,6 @@
 
       <div class="input-field col s12 m3">
      <select name="wheel">
-       <option value="" disabled selected>nombre de roue</option>
        <option value="1">2</option>
        <option value="2">3</option>
        <option value="3">4</option>
@@ -68,11 +66,19 @@
      <label>Type de vehicule</label>
     </div>
 
+    <div class="file-field input-field">
+      <div class="btn">
+        <span>File</span>
+        <input type="file" name="monfichier">
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" name"name" type="text">
+      </div>
+    </div>
+
     <div class="input-field col s12">
-          <i class="material-icons prefix">mode_edit</i>
-          <textarea name="detail" id="detail " class="materialize-textarea"></textarea>
-          <label for="detail">detail vehicule</label>
-        </div>
+          <textarea name="detail"></textarea>
+      </div>
 
       <div class="card-action">
         <input class="waves-effect waves-light btn" type="submit" name="addVehicule" value="valider">
