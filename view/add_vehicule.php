@@ -70,7 +70,7 @@
 
     <div class="input-field col s12">
           <i class="material-icons prefix">mode_edit</i>
-          <textarea name="detail" id="detail" class="materialize-textarea"></textarea>
+          <textarea name="detail" id="detail " class="materialize-textarea"></textarea>
           <label for="detail">detail vehicule</label>
         </div>
 

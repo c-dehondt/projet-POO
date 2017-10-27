@@ -49,7 +49,7 @@
 
     <div class="input-field col s12 m3">
       <select name="fuel">
-      
+
         <option value="Essence">Essence</option>
         <option value="Diesel">Diesel</option>
         <option value="Gaz">Gaz</option>
@@ -72,7 +72,7 @@
 
        <div class="input-field col s12" id="formdetail">
          <i class="material-icons prefix">mode_edit</i>
-         <textarea name="detail" id="detail" class="materialize-textarea"><?php echo htmlspecialchars($vehicule->getDetail())?></textarea>
+         <textarea name="detail" id="froala-editor" class="materialize-textarea"><?php echo htmlspecialchars($vehicule->getDetail())?></textarea>
          <label for="detail"></label>
        </div>
 

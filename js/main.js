@@ -11,3 +11,8 @@ $('.datepicker').pickadate({
  $(document).ready(function() {
     $('select').material_select();
   });
+
+
+  $(function() {
+      $('textarea#froala-editor').froalaEditor()
+    });
