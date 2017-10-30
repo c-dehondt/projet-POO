@@ -38,7 +38,7 @@ if (!empty ($_POST['mark'])) {
   var_dump($idVehicule);
 
   $manager-> addImage($idVehicule, $_FILES);
-  // header("location:home.php");
+  header("location:home.php");
 }else {
   require '../view/header.php';
   require '../view/add_vehicule.php';

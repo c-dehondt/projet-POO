@@ -52,6 +52,13 @@ class vehiculeManager
       'FILES' => $FILES['monfichier']['name']]);
     }
 
+    public function updateImage($idVehicule, $FILES){
+    $request=$this->bdd->prepare ("UPDATE image SET image= :FILES WHERE idVehicule =:idVehicule");
+    $request->execute([
+      'idVehicule'=> $idVehicule,
+      'FILES' => $FILES['monfichier']['name']]);
+    }
+
 
     public function getIdvehicule($idVehicule)
     {

@@ -17,7 +17,7 @@
           </div>
 
           <div class="card-content">
-              <p> Detail: <?php echo htmlspecialchars($vehicule->getDetail()) ?></p>
+              <p> Detail: <?php echo $vehicule->getDetail() ?></p>
             </div>
           <div class="card-action">
             <a href="../controller/updateVehicule.php?edit=<?php echo $vehicule->getIdVehicule()?>"><i class="material-icons fa-2x">create</i></a>

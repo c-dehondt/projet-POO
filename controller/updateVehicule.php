@@ -21,9 +21,26 @@ if (!empty ($_POST['mark'])) {
   $idVehicule=$_GET['edit'];
 
 
+  if ($FILES['monfichier']['size'] <= 1000000)
+  {
+    // Testons si l'extension est autorisée
+    $infosfichier = pathinfo($_FILES['monfichier']['name']);
+    var_dump($_FILES);
+    $extension_upload = $infosfichier['extension'];
+    $extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
+
+    if (in_array($extension_upload, $extensions_autorisees))
+    {
+      // On peut valider le fichier et le stocker définitivement
+      move_uploaded_file($_FILES['monfichier']['tmp_name'], '../img/' . $_FILES['monfichier']['name']);
+
+    }
+  }
 
   $manager1->updateVehicule($idVehicule,$mark,$model,$registration,$price,$type,$door,$wheel,$fuel,$detail);
-  header("location:home.php");
+
+  $manager1-> updateImage($idVehicule, $_FILES);
+  header("location: home.php");
 }else {
   require '../view/header.php';
   require '../view/updateVehicule.php';

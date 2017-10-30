@@ -19,13 +19,14 @@
                 <p>Nombre de roue: <?php echo htmlspecialchars($vehicule->getWheel()) ?></p>
                 <p>Carburant: <?php echo htmlspecialchars($vehicule->getFuel()) ?></p>
                 <p>Prix: <?php echo  htmlspecialchars($vehicule->getPrice()) . '€'?></p>
+                <p><?php echo $vehicule->getIdVehicule()?></p>
               </div>
+              
               <div class="card-action">
                 <a href="../controller/detail_controller.php?id=<?php echo $vehicule->getIdVehicule()?>"><i class="material-icons fa-2x">add</i></a>
                 <a href="../controller/updateVehicule.php?edit=<?php echo $vehicule->getIdVehicule()?>"><i class="material-icons fa-2x">create</i></a>
                 <a href="../controller/deleteVehicule.php?cancel=<?php echo $vehicule->getIdVehicule()?>"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a>
               </div>
-              <?php var_dump ($vehicule) ?>
             </div>
           </div>
         </div>

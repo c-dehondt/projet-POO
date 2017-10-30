@@ -18,53 +18,54 @@
           <label for="Immatriculation">Immatriculation</label>
         </div>
 
+
+        <div class="input-field col s12 m3">
+          <select name="type">
+            <option value="Voiture">Voiture</option>
+            <option value="Moto">Moto</option>
+            <option value="Camion">Camion</option>
+          </select>
+          <label>Type de vehicule</label>
+        </div>
+
+        <div class="input-field col s12 m3">
+          <select name="door">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <label>nombre de porte</label>
+        </div>
+
+        <div class="input-field col s12 m3">
+          <select name="fuel">
+            <option value="Essence">Essence</option>
+            <option value="Diesel">Diesel</option>
+            <option value="Gaz">Gaz</option>
+            <option value="Electrique">Electrique</option>
+          </select>
+          <label>Type de vehicule</label>
+        </div>
+
+        <div class="input-field col s12 m3">
+          <select name="wheel">
+            <option value="1">2</option>
+            <option value="2">3</option>
+            <option value="3">4</option>
+            <option value="4">5</option>
+            <option value="5">6</option>
+          </select>
+          <label>Type de vehicule</label>
+        </div>
+
         <div class="input-field col s12 m4">
           <input name='price' id="Prix" type="number" class="validate">
           <label for="Prix">Prix</label>
         </div>
       </div>
-
-      <div class="input-field col s12 m3">
-     <select name="type">
-       <option value="Voiture">Voiture</option>
-       <option value="Moto">Moto</option>
-       <option value="Camion">Camion</option>
-     </select>
-     <label>Type de vehicule</label>
-   </div>
-
-     <div class="input-field col s12 m3">
-    <select name="door">
-      <option value="0">0</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-    </select>
-    <label>nombre de porte</label>
-  </div>
-
-  <div class="input-field col s12 m3">
- <select name="fuel">
-   <option value="Essence">Essence</option>
-   <option value="Diesel">Diesel</option>
-   <option value="Gaz">Gaz</option>
-   <option value="Electrique">Electrique</option>
- </select>
- <label>Type de vehicule</label>
-</div>
-
-      <div class="input-field col s12 m3">
-     <select name="wheel">
-       <option value="1">2</option>
-       <option value="2">3</option>
-       <option value="3">4</option>
-       <option value="4">5</option>
-       <option value="5">6</option>
-     </select>
-     <label>Type de vehicule</label>
-    </div>
 
     <div class="file-field input-field">
       <div class="btn">
@@ -75,7 +76,6 @@
         <input class="file-path validate" name"name" type="text">
       </div>
     </div>
-
     <div class="input-field col s12">
           <textarea name="detail"></textarea>
       </div>
