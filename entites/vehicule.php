@@ -54,6 +54,7 @@ abstract class vehicule
 
     public function setPrice($price)
     {
+    
         $this->price=$price;
     }
 

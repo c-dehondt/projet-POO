@@ -1,3 +1,5 @@
+<?php require '../view/header.php'; ?>
+
 <section class="container">
   <h2>Nouveau vehicule</h2>
   <div class="row">
@@ -16,6 +18,7 @@
         <div class="input-field col s12 m8">
           <input name='registration' id="Immatriculation" type="text" class="validate">
           <label for="Immatriculation">Immatriculation</label>
+          <small>Entrer immatriculation de type:HY-958-GT</small>
         </div>
 
         <div class="input-field col s12 m4">
@@ -74,6 +77,9 @@
           <label for="detail">detail vehicule</label>
         </div>
 
+        <p><?php echo $erreur ?></p>
+
+
       <div class="card-action">
         <input class="waves-effect waves-light btn" type="submit" name="addVehicule" value="valider">
       </div>
@@ -81,3 +87,5 @@
   </div>
 
 </section>
+
+<?php  require '../view/footer.php';?>
