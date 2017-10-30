@@ -13,7 +13,7 @@ if (!empty ($_POST['mark'])) {
   $fuel=$_POST['fuel'];
   $detail=$_POST['detail'];
 
- 
+
 
 
   $manager= new vehiculeManager($bdd);

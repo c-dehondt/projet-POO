@@ -118,10 +118,10 @@ class vehiculeManager
       ));
 }
 
-public function existRegistration($registration)
+public function verifRegistration($registration)
     {
         $reponse= $this->bdd->prepare('SELECT COUNT(*) FROM vehicule WHERE registration = :registration');
-        $reponse->execute([':immatriculation' => $registration]);
+        $reponse->execute([':registration' => $registration]);
         return (bool) $reponse->fetchColumn();
     }
 }
