@@ -9,14 +9,12 @@ $vehicule= $manager1->getIdvehicule($_GET['edit']);
 
 if (!empty ($_POST['mark'])) {
   $updateVehicule = new $_POST['type']($_POST);
-  var_dump($_POST);
   $idVehicule=(int)$_GET['edit'];
 
   if ($FILES['monfichier']['size'] <= 1000000)
   {
     // Testons si l'extension est autorisée
     $infosfichier = pathinfo($_FILES['monfichier']['name']);
-    var_dump($_FILES);
     $extension_upload = $infosfichier['extension'];
     $extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
 

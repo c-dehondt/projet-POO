@@ -79,7 +79,16 @@
              <textarea name="detail"><?php echo htmlspecialchars($vehicule->getDetail())?></textarea>
          </div>
 
-
+         <div class="file-field input-field col s12">
+           <div class="btn">
+             <span>File</span>
+             <input type="file" name="monfichier">
+           </div>
+           <div class="file-path-wrapper">
+             <input class="file-path validate" name"name" type="text">
+           </div>
+         </div>
+         
        <div class="card-action">
          <input class="waves-effect waves-light btn" type="submit" name="updateVehicule" value="valider">
        </div>
