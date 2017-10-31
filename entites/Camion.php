@@ -3,9 +3,9 @@
 /**
  *
  */
-class camion extends vehicule
+class Camion extends vehicule
 {
-  
+
 }
 
  ?>

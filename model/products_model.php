@@ -22,7 +22,7 @@ class vehiculeManager
     public function getVehicules()
     {
         $vehicule=[];
-        $request = $this->bdd->query('SELECT * FROM vehicule');
+        $request = $this->bdd->query('SELECT * FROM vehicule INNER JOIN image ON vehicule.idVehicule = image.idVehicule');
 
         while ($donnees = $request->fetch(PDO::FETCH_ASSOC)) {
           //   switch ($donnees['type']) {
@@ -45,10 +45,24 @@ class vehiculeManager
 
     }
 
+    public function addImage($idVehicule, $FILES){
+    $request=$this->bdd->prepare ("INSERT INTO image (idVehicule, image) VALUES (:idVehicule, :FILES)");
+    $request->execute([
+      'idVehicule'=> $idVehicule,
+      'FILES' => $FILES['monfichier']['name']]);
+    }
+
+    public function updateImage($idVehicule, $FILES){
+    $request=$this->bdd->prepare ("UPDATE image SET image= :FILES WHERE idVehicule =:idVehicule");
+    $request->execute([
+      'idVehicule'=> $idVehicule,
+      'FILES' => $FILES['monfichier']['name']]);
+    }
+
 
     public function getIdvehicule($idVehicule)
     {
-        $request = $this->bdd->prepare('SELECT * FROM vehicule WHERE idVehicule = :idVehicule');
+        $request = $this->bdd->prepare('SELECT * FROM vehicule INNER JOIN image ON vehicule.idVehicule = image.idVehicule WHERE vehicule.idVehicule = :idVehicule');
         $request->execute(array('idVehicule' => $idVehicule ));
         $donnees = $request->fetch(PDO::FETCH_ASSOC);
         $vehicule = new $donnees['type']($donnees);
@@ -81,32 +95,22 @@ class vehiculeManager
         ));
     }
 
-    public function updateVehicule(
-      $idVehicule,
-      $mark,
-      $model,
-      $registration,
-      $price,
-      $type,
-      $door,
-      $wheel,
-      $fuel,
-      $detail)
+    public function updateVehicule($idVehicule, $updateVehicule)
       {
 
       $request = $this->bdd->prepare('UPDATE vehicule SET mark=:mark, model=:model, registration=:registration, price=:price, type=:type, door=:door, wheel=:wheel, fuel=:fuel, detail=:detail WHERE idVehicule = :idVehicule');
 
       $request->execute(array(
       'idVehicule'=>$idVehicule,
-      'mark'=>$mark,
-      'model'=>$model,
-      'registration'=>$registration,
-      'price'=>$price,
-      'type'=>$type,
-      'door'=>$door,
-      'wheel'=>$wheel,
-      'fuel'=>$fuel,
-      'detail'=>$detail
+      'mark'=>$updateVehicule->getMark(),
+      'model'=>$updateVehicule->getModel(),
+      'registration'=>$updateVehicule->getRegistration(),
+      'price'=>$updateVehicule->getPrice(),
+      'type'=>$updateVehicule->getType(),
+      'door'=>$updateVehicule->getDoor(),
+      'wheel'=>$updateVehicule->getWheel(),
+      'fuel'=>$updateVehicule->getFuel(),
+      'detail'=>$updateVehicule->getDetail()
       ));
 }
 

@@ -7,14 +7,13 @@ $('.datepicker').pickadate({
    closeOnSelect: false // Close upon selecting a date,
  });
 
+ $(".button-collapse").sideNav();
 
  $(document).ready(function() {
     $('select').material_select();
   });
 
-
   $(".button-collapse").sideNav();
-
 
   $(function() {
       $('textarea#froala-editor').froalaEditor()

@@ -1,8 +1,12 @@
+<?php require '../view/header.php'; ?>
 <section class="">
   <h2>Produits</h2>
     <div class="col s12 m10 white-text">
       <div class="card blue-grey darken-1">
         <div class="card-content">
+          <div class="card-image">
+            <img src= "../img/<?php echo $vehicule->getImage()?>">
+          </div>
             <span class="card-title"><?php echo htmlspecialchars($vehicule->getMark()) ?></span>
             <p> Model: <?php echo htmlspecialchars($vehicule->getModel()) ?></p>
             <p>Immatriculation: <?php echo htmlspecialchars($vehicule->getRegistration()) ?></p>
@@ -14,7 +18,7 @@
           </div>
 
           <div class="card-content">
-              <p> Detail: <?php echo htmlspecialchars($vehicule->getDetail()) ?></p>
+              <div><?php echo ($vehicule->getDetail()) ?></div>
             </div>
           <div class="card-action">
             <a href="../controller/updateVehicule.php?edit=<?php echo $vehicule->getIdVehicule()?>"><i class="material-icons fa-2x">create</i></a>
@@ -22,5 +26,5 @@
           </div>
         </div>
       </div>
-    </div>
 </section>
+<?php require '../view/footer.php' ?>

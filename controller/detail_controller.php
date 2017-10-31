@@ -2,7 +2,8 @@
   require_once '../model/connexion_sql.php';
   require '../model/products_model.php';
   require '../service/chargerClass.php';
-  require '../view/header.php';
+
+  // require_once 'htmlpurifier/HTMLPurifier.auto.php';
 
   spl_autoload_register('chargerClasse');
 
@@ -13,5 +14,4 @@
 
 
   require '../view/detail_view.php';
-  require '../view/footer.php';
    ?>

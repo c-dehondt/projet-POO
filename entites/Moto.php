@@ -3,7 +3,7 @@
 /**
  *
  */
-class moto extends vehicule
+class Moto extends vehicule
 {
 
 }

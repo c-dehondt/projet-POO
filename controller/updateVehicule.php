@@ -8,26 +8,30 @@ $manager1= new vehiculeManager($bdd);
 $vehicule= $manager1->getIdvehicule($_GET['edit']);
 
 if (!empty ($_POST['mark'])) {
+  $updateVehicule = new $_POST['type']($_POST);
+  var_dump($_POST);
+  $idVehicule=(int)$_GET['edit'];
 
-  $mark=$_POST['mark'];
-  $model=$_POST['model'];
-  $registration=$_POST['registration'];
-  $price=$_POST['price'];
-  $type=$_POST['type'];
-  $door=$_POST['door'];
-  $wheel=$_POST['wheel'];
-  $fuel=$_POST['fuel'];
-  $detail=$_POST['detail'];
-  $idVehicule=$_GET['edit'];
+  if ($FILES['monfichier']['size'] <= 1000000)
+  {
+    // Testons si l'extension est autorisée
+    $infosfichier = pathinfo($_FILES['monfichier']['name']);
+    var_dump($_FILES);
+    $extension_upload = $infosfichier['extension'];
+    $extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
 
+    if (in_array($extension_upload, $extensions_autorisees))
+    {
+      // On peut valider le fichier et le stocker définitivement
+      move_uploaded_file($_FILES['monfichier']['tmp_name'], '../img/' . $_FILES['monfichier']['name']);
 
-
-  $manager1->updateVehicule($idVehicule,$mark,$model,$registration,$price,$type,$door,$wheel,$fuel,$detail);
-  header("location:home.php");
+    }
+  }
+  $manager1->updateVehicule($idVehicule, $updateVehicule);
+  $manager1-> updateImage($idVehicule, $_FILES);
+  header("location: home.php");
 }else {
-  require '../view/header.php';
   require '../view/updateVehicule.php';
-  require '../view/footer.php';
 }
 
  ?>
