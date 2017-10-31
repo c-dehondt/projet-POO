@@ -13,6 +13,9 @@ $('.datepicker').pickadate({
   });
 
 
+  $(".button-collapse").sideNav();
+
+
   $(function() {
       $('textarea#froala-editor').froalaEditor()
     });

@@ -2,12 +2,12 @@
 ?>
 
 <section class="row">
-  <h2>Produits</h2>
+  <h2 class="center-align">Produits</h2>
   <?php foreach ($vehicules as $vehicule): ?>
         <div class="col s12 m4">
-          <div class="card blue-grey darken-1">
+          <div class="card blue-grey darken-4">
             <div class="card-content white-text">
-                <span class="card-title"><?php echo htmlspecialchars($vehicule->getMark()) ?></span>
+                <span class="card-title center-align"><?php echo htmlspecialchars($vehicule->getMark()) ?></span>
                 <p> Model: <?php echo htmlspecialchars($vehicule->getModel()) ?></p>
                 <p>Immatriculation: <?php echo htmlspecialchars($vehicule->getRegistration()) ?></p>
                 <p>Type: <?php echo htmlspecialchars($vehicule->getType()) ?></p>

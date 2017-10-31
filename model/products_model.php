@@ -55,37 +55,29 @@ class vehiculeManager
         return $vehicule;
     }
 
+
     public function deleteVehicule($idVehicule)
     {
 
       $request=$this->bdd->prepare('DELETE FROM vehicule WHERE idVehicule = :idVehicule');
       $request->execute(array('idVehicule'=> $idVehicule));
     }
-
-    public function addVehicule(
-        $mark,
-        $model,
-        $registration,
-        $price,
-        $type,
-        $door,
-        $wheel,
-        $fuel,
-        $detail)
+// addVehicule($vehicule) {
+    public function addVehicule($addVehicule)
         {
 
         $request = $this->bdd->prepare('INSERT INTO vehicule (mark, model, registration, price, type, door, wheel, fuel, detail)
                                                         VALUES(:mark, :model, :registration, :price, :type, :door, :wheel, :fuel, :detail)');
         $request->execute(array(
-        'mark'=>$mark,
-        'model'=>$model,
-        'registration'=>$registration,
-        'price'=>$price,
-        'type'=>$type,
-        'door'=>$door,
-        'wheel'=>$wheel,
-        'fuel'=>$fuel,
-        'detail'=>$detail
+        'mark'=>$addVehicule->getMark(),
+        'model'=>$addVehicule->getModel(),
+        'registration'=>$addVehicule->getRegistration(),
+        'price'=>$addVehicule->getPrice(),
+        'type'=>$addVehicule->getType(),
+        'door'=>$addVehicule->getDoor(),
+        'wheel'=>$addVehicule->getWheel(),
+        'fuel'=>$addVehicule->getFuel(),
+        'detail'=>$addVehicule->getDetail()
         ));
     }
 

@@ -39,6 +39,7 @@ abstract class vehicule
 
     public function setMark($mark)
     {
+
         $this->mark=$mark;
     }
 
@@ -54,7 +55,6 @@ abstract class vehicule
 
     public function setPrice($price)
     {
-    
         $this->price=$price;
     }
 

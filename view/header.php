@@ -24,20 +24,18 @@
     <body class="row">
 
       <nav>
-          <div class="nav-wrapper">
-            <a href="home.php" class="brand-logo"><img src="" alt="logo du site"></a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-              <li>
-                <a href="../controller/addVehicule.php">Créer un produit
-                  <!-- <form action="index.php"  method="post">
-                  <input type="hidden" name="addVehicule">
-                  <button class="btn-flat white-text" type="submit">Créer produit</button>
-                </form> -->
-                </a>
-              </li>
-              <li><a href="home.php">Tous les produits</a></li>
+          <div class="nav-wrapper  blue-grey darken-1">
+            <a href="home.php" class="brand-logo"><img class=" col m2 circle responsive-img" src="../img/logo.png" alt="logo du site"></a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+              <ul class="right hide-on-med-and-down">
+                <li><a href="../controller/addVehicule.php">Créer un produit</a></li>
+                <li><a href="home.php">Tous les produits</a></li>
+              </ul>
 
-            </ul>
+              <ul class="side-nav" id="mobile-demo">
+                <li><a href="../controller/addVehicule.php">Créer un produit</a></li>
+                <li><a href="home.php">Tous les produits</a></li>
+              </ul>
           </div>
         </nav>
 

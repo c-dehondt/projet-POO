@@ -24,6 +24,7 @@
         <div class="input-field col s12 m4">
           <input name='price' id="Prix" type="number" class="validate">
           <label for="Prix">Prix</label>
+          <small>Entrer un prix de type chiffre:15899</small>
         </div>
       </div>
 
